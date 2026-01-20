@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kviz.Wpf", "KvizApp\Kviz.Wpf.csproj", "{7D572609-1C46-4762-BF54-B52D0F23CE84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kviz.Core", "Kviz.Core\Kviz.Core.csproj", "{912E8CBD-913E-4869-9321-D691930CCDDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D572609-1C46-4762-BF54-B52D0F23CE84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D572609-1C46-4762-BF54-B52D0F23CE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D572609-1C46-4762-BF54-B52D0F23CE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D572609-1C46-4762-BF54-B52D0F23CE84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{912E8CBD-913E-4869-9321-D691930CCDDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912E8CBD-913E-4869-9321-D691930CCDDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912E8CBD-913E-4869-9321-D691930CCDDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912E8CBD-913E-4869-9321-D691930CCDDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {898A5933-EDE5-4C26-B7A2-A092D4A8B834}
+	EndGlobalSection
+EndGlobal

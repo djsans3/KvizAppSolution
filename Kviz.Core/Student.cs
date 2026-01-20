@@ -1,0 +1,17 @@
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+public class Student : Korisnik {
+
+	public Student() {
+	}
+
+
+	public void RijesiIspit() {
+		// TODO implement here
+	}
+
+}
