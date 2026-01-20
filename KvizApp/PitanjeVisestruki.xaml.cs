@@ -23,5 +23,26 @@ namespace Kviz.Wpf
         {
             InitializeComponent();
         }
+        private void btnNatrag_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Povratak na prethodno pitanje", "Info");
+            // Ovdje dodaj logiku za prethodno pitanje
+        }
+
+        private void btnNastavi_Click(object sender, RoutedEventArgs e)
+        {
+            if (!rbOdgovor1.IsChecked.GetValueOrDefault() &&
+                !rbOdgovor2.IsChecked.GetValueOrDefault() &&
+                !rbOdgovor3.IsChecked.GetValueOrDefault() &&
+                !rbOdgovor4.IsChecked.GetValueOrDefault())
+            {
+                MessageBox.Show("Molimo odaberite odgovor!", "Upozorenje",
+                              MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MessageBox.Show("Prelazak na sljedeće pitanje", "Info");
+            // Ovdje dodaj logiku za sljedeće pitanje
+        }
     }
 }
