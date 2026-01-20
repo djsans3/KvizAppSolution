@@ -1,0 +1,64 @@
+﻿<Window x:Class="Kviz.Wpf.PrikazIspita"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kviz.Wpf"
+        mc:Ignorable="d"
+        Title="PrikazIspita" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header sa naslovom i gumbom odjava -->
+        <Grid Grid.Row="0" Background="#F0F0F0" Height="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="kVIz" 
+                       FontSize="24" FontWeight="Bold"
+                       VerticalAlignment="Center" Margin="20,0"/>
+
+            <Button Grid.Column="1" Content="Odjava" 
+                    Width="100" Height="35" Margin="20,0"
+                    FontSize="14"
+                    Click="btnOdjava_Click"/>
+        </Grid>
+
+
+        <DataGrid Grid.Row="1" x:Name="dgIspiti" 
+                  HeadersVisibility="Column"
+                  Margin="20,20,20,99"
+                  FontSize="14"
+                  RowHeight="40" SelectionChanged="dgIspiti_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="br." 
+                                  Binding="{Binding RedniBroj}" 
+                                  Width="30"/>
+                <DataGridTextColumn Header="Naziv ispita" 
+                                  Binding="{Binding NazivIspita}" 
+                                  Width="*"/>
+                <DataGridTextColumn Header="Broj pitanja" 
+                                  Binding="{Binding BrojPitanja}" 
+                                  Width="120"/>
+                <DataGridTextColumn Header="Bodovi" 
+                                  Binding="{Binding Bodovi}" 
+                                  Width="120"/>
+                <DataGridTemplateColumn Header="Pokreni ispit" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Ispitaj se" 
+                                    Height="30" 
+                                    Click="btnIspitajSe_Click"
+                                    Tag="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

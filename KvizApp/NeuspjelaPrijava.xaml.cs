@@ -1,5 +1,9 @@
 ﻿using Kviz.Wpf;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,39 +17,34 @@ using System.Windows.Shapes;
 namespace KvizApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NeuspjelaPrijava.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NeuspjelaPrijava : Window
     {
-        public MainWindow()
+        public NeuspjelaPrijava()
         {
             InitializeComponent();
         }
-        private void btnPrijava_Click(object sender, RoutedEventArgs e)
-        {
-            // Ovdje možeš dodati validaciju korisničkog imena i lozinke
-            string korisnickoIme = txtKorisnickoIme.Text;
-            string lozinka = txtLozinka.Password;
 
-            // Primjer jednostavne provjere (možeš dodati svoju logiku)
+        private void btnPrijava2_Click(object sender, RoutedEventArgs e)
+        {
+            string korisnickoIme = txtKorisnickoIme2.Text;
+            string lozinka = txtLozinka2.Password;
+
             if (!string.IsNullOrWhiteSpace(korisnickoIme) &&
                 !string.IsNullOrWhiteSpace(lozinka))
             {
                 if (lozinka == "12345678")
                 {
-                    // Uspješna prijava - otvori glavno sučelje
+                    // Otvori sučelje za uspješnu prijavu
                     UspjesnaPrijava uspjesnaPrijava = new UspjesnaPrijava();
                     uspjesnaPrijava.Show();
                     this.Close();
                 }
                 else
-                { 
-                    // Otvori novo sučelje
-                    NeuspjelaPrijava neuspjelaPrijava = new NeuspjelaPrijava();
-                    neuspjelaPrijava.Show();
-
-                    // Zatvori trenutni prozor
-                    this.Close();
+                {
+                    MessageBox.Show("Neispravna lozinka!", "Greška",
+                                  MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
@@ -56,3 +55,4 @@ namespace KvizApp
         }
     }
 }
+
