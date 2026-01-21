@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Header -->
+        
         <Grid Grid.Row="0" Background="#F0F0F0" Height="60">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -30,7 +30,7 @@
                     Click="btnOdjava_Click"/>
         </Grid>
 
-        <!-- Tablica ispita -->
+       
         <DataGrid Grid.Row="1" x:Name="dgIspiti" 
                   AutoGenerateColumns="False" 
                   CanUserAddRows="False"
@@ -54,7 +54,7 @@
                                   Binding="{Binding Bodovi}" 
                                   Width="100"/>
 
-                <!-- Gumb za uređivanje -->
+                
                 <DataGridTemplateColumn Header="Uredi" Width="80">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -67,7 +67,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <!-- Gumb za brisanje -->
+                
                 <DataGridTemplateColumn Header="Obriši" Width="80">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -82,7 +82,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <!-- Gumb Dodaj ispit -->
+        
         <Button Grid.Row="2" Content="Dodaj ispit" 
                 Width="200" Height="50"
                 FontSize="16" FontWeight="Bold"

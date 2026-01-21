@@ -12,7 +12,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Plutajući okvir sa pitanjem -->
+        
         <Border Grid.Row="0" 
                 Background="White" 
                 BorderBrush="Gray" 
@@ -64,7 +64,7 @@
             </StackPanel>
         </Border>
 
-        <!-- Gumbi na dnu -->
+        
         <Grid Grid.Row="1" Margin="50,0,50,30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

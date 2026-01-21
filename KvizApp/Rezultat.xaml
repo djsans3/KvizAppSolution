@@ -6,30 +6,28 @@
         xmlns:local="clr-namespace:Kviz.Wpf"
         mc:Ignorable="d"
         Title="Rezultat" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="0,23,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Naslov -->
+        
         <Border Grid.Row="0"  Padding="20" Margin="0,-13,0,14">
             <TextBlock Text="Vaš rezultat:" 
                        FontSize="32" 
                        FontWeight="Bold"
-                       Foreground="Gray"
-                       HorizontalAlignment="Center"/>
+                       Foreground="Indigo"
+                       HorizontalAlignment="Center" Margin="0,0,0,-20"/>
         </Border>
 
-        <!-- Glavni sadržaj sa rezultatima -->
         <Border Grid.Row="1" 
                 Background="White" 
-                BorderBrush="#DDDDDD" 
                 BorderThickness="1"
                 Margin="10,0,10,0"
-                Padding="40"
-                CornerRadius="10">
+                Padding="10">
+
             <StackPanel VerticalAlignment="Center">
 
                
@@ -42,13 +40,11 @@
                     <TextBlock x:Name="txtBodovi" 
                                Text="85/100" 
                                FontSize="24"
-                               FontWeight="Bold"
-                               Foreground="#4CAF50"/>
+                               FontWeight="Bold"/>
                 </StackPanel>
 
             
 
-                <!-- Postotak -->
                 <StackPanel Orientation="Horizontal" 
                            HorizontalAlignment="Center"
                            Margin="0,0,0,20">
@@ -58,11 +54,10 @@
                     <TextBlock x:Name="txtPostotak" 
                                Text="85%" 
                                FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="#2196F3"/>
+                               FontWeight="Bold"/>
                 </StackPanel>
 
-                <!-- Ocjena -->
+               
                 <StackPanel Orientation="Horizontal" 
                            HorizontalAlignment="Center"
                            Margin="0,0,0,20">
@@ -72,11 +67,9 @@
                     <TextBlock x:Name="txtOcjena" 
                                Text="Vrlo dobar (4)" 
                                FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="#FF9800"/>
+                               FontWeight="Bold"/>
                 </StackPanel>
 
-                <!-- Rang lista -->
                 <StackPanel Orientation="Horizontal" 
                            HorizontalAlignment="Center"
                            Margin="0,0,0,0">
@@ -86,14 +79,13 @@
                     <TextBlock x:Name="txtRangLista" 
                                Text="12" 
                                FontSize="20"
-                               FontWeight="Bold"
-                               Foreground="#9C27B0"/>
+                               FontWeight="Bold"/>
                 </StackPanel>
 
             </StackPanel>
         </Border>
 
-        <!-- Gumbi na dnu -->
+        
         <StackPanel Grid.Row="2" 
                    Orientation="Horizontal" 
                    HorizontalAlignment="Center"

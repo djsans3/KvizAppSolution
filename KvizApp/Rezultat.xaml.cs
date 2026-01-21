@@ -29,7 +29,6 @@ namespace Kviz.Wpf
         public Rezultat()
         {
             InitializeComponent();
-            // Primjer podataka - možeš ih proslijediti kroz konstruktor
             IzracunajRezultat(85, 100, 12);
         }
 
@@ -44,14 +43,11 @@ namespace Kviz.Wpf
             ostvareniBodovi = ostvareni;
             maksimalniBodovi = maksimalni;
             pozicijaRangListe = rang;
-
-            // Izračunaj postotak
+            
             postotak = ((double)ostvareniBodovi / maksimalniBodovi) * 100;
 
-            // Odredi ocjenu
             ocjena = OdrediOcjenu(postotak);
 
-            // Postavi vrijednosti
             txtBodovi.Text = $"{ostvareniBodovi}/{maksimalniBodovi}";
             txtPostotak.Text = $"{postotak:F2}%";
             txtOcjena.Text = ocjena;
@@ -74,7 +70,6 @@ namespace Kviz.Wpf
 
         private void btnPovratak_Click(object sender, RoutedEventArgs e)
         {
-            // Vrati se na listu ispita
             PrikazIspita dostupniIspiti = new PrikazIspita();
             dostupniIspiti.Show();
             this.Close();
@@ -82,7 +77,6 @@ namespace Kviz.Wpf
 
         private void btnOdjava_Click(object sender, RoutedEventArgs e)
         {
-            // Vrati se na početni ekran
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();

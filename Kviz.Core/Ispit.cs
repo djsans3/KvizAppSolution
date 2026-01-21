@@ -11,7 +11,7 @@ public class Ispit {
 
 	public int sifra;
 
-	public vector<Pitanje*> skupPitanja;
+	//public vector <Pitanje*> skupPitanja;
 
 	public int trenBrojTocnihOdg;
 

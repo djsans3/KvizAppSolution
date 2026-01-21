@@ -18,12 +18,11 @@
                 BorderBrush="Gray" 
                 BorderThickness="2"
                 CornerRadius="10"
-                Margin="50"
                 Padding="30"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 MinWidth="500"
-                MinHeight="250">
+                MinHeight="250" Height="284">
             <StackPanel>
                 <TextBlock Text="Pitanje 1:" 
                            FontSize="18" 
@@ -47,7 +46,7 @@
             </StackPanel>
         </Border>
 
-        <!-- Gumbi na dnu -->
+        
         <Grid Grid.Row="1" Margin="50,0,50,30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

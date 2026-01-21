@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Header sa naslovom i gumbom odjava -->
+        
         <Grid Grid.Row="0" Background="#F0F0F0" Height="60">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

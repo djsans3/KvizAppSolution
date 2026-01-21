@@ -34,16 +34,27 @@ namespace KvizApp
             if (!string.IsNullOrWhiteSpace(korisnickoIme) &&
                 !string.IsNullOrWhiteSpace(lozinka))
             {
-                if (lozinka == "12345678")
+                if (korisnickoIme == "profesor" && lozinka == "87654321")
                 {
-                    // Otvori sučelje za uspješnu prijavu
+                    UspjesnaPrijavaProfesor uspjesnaPrijava = new UspjesnaPrijavaProfesor();
+                    uspjesnaPrijava.Show();
+                    this.Close();
+                }
+                else if (korisnickoIme == "student" && lozinka == "1234")
+                {
+                    PrikazIspita uspjesnaPrijava = new PrikazIspita();
+                    uspjesnaPrijava.Show();
+                    this.Close();
+                }
+                else if (korisnickoIme == "student" && lozinka == "12345678")
+                {
                     UspjesnaPrijava uspjesnaPrijava = new UspjesnaPrijava();
                     uspjesnaPrijava.Show();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Neispravna lozinka!", "Greška",
+                    MessageBox.Show("Neispravni podatci", "Greška",
                                   MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }

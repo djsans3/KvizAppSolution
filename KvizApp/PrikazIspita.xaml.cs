@@ -37,13 +37,12 @@ namespace Kviz.Wpf
                 new Ispit { RedniBroj = 5, NazivIspita = "Web dizajn", BrojPitanja = 12, Bodovi = 60, TipPitanja = TipPitanja.Tekstualni }
             };
 
-            dgIspiti.ItemsSource = ispiti;
+            //dgIspiti.ItemsSource = ispiti;
         }
         private void btnIspitajSe_Click(object sender, RoutedEventArgs e)
         {
             if (sender is System.Windows.Controls.Button btn && btn.Tag is Ispit ispit)
             {
-                // Otvori odgovarajući prozor ovisno o tipu pitanja
                 if (ispit.TipPitanja == TipPitanja.Tekstualni)
                 {
                     PitanjeTekstualno pitanje = new PitanjeTekstualno();

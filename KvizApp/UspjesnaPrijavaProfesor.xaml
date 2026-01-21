@@ -13,7 +13,6 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Header -->
         <Grid Grid.Row="0" Background="#F0F0F0" Height="60">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -30,7 +29,6 @@
                     Click="btnOdjava_Click"/>
         </Grid>
 
-        <!-- Poruka -->
         <Grid Grid.Row="1">
             <TextBlock Text="Nema ispita za prikaz!" 
                        FontSize="28" FontWeight="Bold"
@@ -39,7 +37,6 @@
                        Foreground="#333333"/>
         </Grid>
 
-        <!-- Gumb Dodaj ispit -->
         <Button Grid.Row="2" Content="Dodaj ispit" 
                 Width="200" Height="50"
                 FontSize="16" FontWeight="Bold"

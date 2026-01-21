@@ -41,7 +41,7 @@ namespace Kviz.Wpf
                 new Ispit { RedniBroj = 5, NazivIspita = "Web dizajn", BrojPitanja = 12, Bodovi = 60 }
             };
 
-            dgIspiti.ItemsSource = ispiti;
+            //dgIspiti.ItemsSource = ispiti;
         }
 
         private void btnUredi_Click(object sender, RoutedEventArgs e)

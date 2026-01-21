@@ -26,7 +26,6 @@ namespace Kviz.Wpf
         }
         private void btnOdjava_Click(object sender, RoutedEventArgs e)
         {
-            // Vrati se na početni ekran prijave
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();

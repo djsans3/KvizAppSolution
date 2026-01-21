@@ -23,11 +23,9 @@ namespace KvizApp
         }
         private void btnPrijava_Click(object sender, RoutedEventArgs e)
         {
-            // Ovdje možeš dodati validaciju korisničkog imena i lozinke
             string korisnickoIme = txtKorisnickoIme.Text;
             string lozinka = txtLozinka.Password;
 
-            // Primjer jednostavne provjere (možeš dodati svoju logiku)
             if (!string.IsNullOrWhiteSpace(korisnickoIme) &&
                 !string.IsNullOrWhiteSpace(lozinka))
             {
@@ -37,20 +35,22 @@ namespace KvizApp
                     uspjesnaPrijava.Show();
                     this.Close();
                 }
-                else if (korisnickoIme=="student" && lozinka == "12345678")
+                else if (korisnickoIme=="student"&& lozinka == "1234")
                 {
-                    // Uspješna prijava - otvori glavno sučelje
+                    PrikazIspita uspjesnaPrijava=new PrikazIspita();
+                    uspjesnaPrijava.Show();
+                    this.Close();
+                }
+                else if (korisnickoIme == "student" && lozinka == "12345678")
+                {
                     UspjesnaPrijava uspjesnaPrijava = new UspjesnaPrijava();
                     uspjesnaPrijava.Show();
                     this.Close();
                 }
                 else
-                { 
-                    // Otvori novo sučelje
+                {
                     NeuspjelaPrijava neuspjelaPrijava = new NeuspjelaPrijava();
                     neuspjelaPrijava.Show();
-
-                    // Zatvori trenutni prozor
                     this.Close();
                 }
             }

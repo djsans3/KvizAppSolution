@@ -33,13 +33,6 @@ namespace Kviz.Wpf
                 return;
             }
 
-            if (!int.TryParse(txtBrojBodova.Text, out int bodovi))
-            {
-                MessageBox.Show("Broj bodova mora biti cijeli broj!",
-                              "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
             MessageBox.Show("Ispit je uspješno kreiran!", "Uspjeh",
                           MessageBoxButton.OK, MessageBoxImage.Information);
 
