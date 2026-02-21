@@ -13,11 +13,9 @@ public abstract class Pitanje {
 
 
 	public void PrintPitanje() {
-		// TODO implement here
 	}
 
 	public void UnosOdg() {
-		// TODO implement here
 	}
 
 }

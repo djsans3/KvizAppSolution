@@ -11,15 +11,12 @@ public class Profesor : Korisnik {
 
 
 	public void UrediIspit() {
-		// TODO implement here
 	}
 
 	public void StvoriIspit() {
-		// TODO implement here
 	}
 
 	public void IzbrisiIspit() {
-		// TODO implement here
 	}
 
 }

@@ -11,27 +11,20 @@ public class Ispit {
 
 	public int sifra;
 
-	public vector<Pitanje*> skupPitanja;
+    public List<Pitanje> SkupPitanja;
 
 	public int trenBrojTocnihOdg;
 
-
-
-
 	public void BrojBodovaMax() {
-		// TODO implement here
 	}
 
 	public void PrintRezultat() {
-		// TODO implement here
 	}
 
 	public void SpremiRezultat() {
-		// TODO implement here
 	}
 
 	public void PrintRangLista() {
-		// TODO implement here
 	}
 
 }

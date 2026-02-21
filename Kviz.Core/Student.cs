@@ -11,7 +11,6 @@ public class Student : Korisnik {
 
 
 	public void RijesiIspit() {
-		// TODO implement here
 	}
 
 }

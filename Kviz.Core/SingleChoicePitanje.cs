@@ -13,10 +13,9 @@ public class SingleChoicePitanje : Pitanje {
 
 	public char odgovorUneseni;
 
-	public string[] ponudeniOdg;
+	public string ponudeniOdg;
 
 	public void PrintPitanje() {
-		// TODO implement here
 	}
 
 }
