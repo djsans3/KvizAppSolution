@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Student : Korisnik {
+public class Student : Korisnik
+{
 
-	public Student() {
+	public Student()
+	{
 	}
 
 
-	public void RijesiIspit() {
+	public void RijesiIspit()
+	{
 	}
 
 }

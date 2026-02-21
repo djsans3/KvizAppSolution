@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class SingleChoicePitanje : Pitanje {
+public class SingleChoicePitanje : Pitanje
+{
 
-	public SingleChoicePitanje() {
+	public SingleChoicePitanje()
+	{
 	}
 
 	public char odgovorTocan;
@@ -15,7 +17,8 @@ public class SingleChoicePitanje : Pitanje {
 
 	public string ponudeniOdg;
 
-	public void PrintPitanje() {
+	public void PrintPitanje()
+	{
 	}
 
 }

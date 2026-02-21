@@ -5,16 +5,18 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
-public class Korisnik {
-
-	public Korisnik() {
+public class Korisnik
+{
+	public Korisnik()
+	{
 	}
 
 	public string username = " ";
 
 	public string password = " ";
 
-	public void Prijava() {
+	public void Prijava()
+	{
 		while (true)
 		{
 			if (username == "admin" && password == "admin")
@@ -36,9 +38,11 @@ public class Korisnik {
 	}
 
 	public void Odjava() {
+		// TODO implement here
 	}
 
 	public void PregledIspita() {
+		// TODO implement here
 	}
-
+	
 }

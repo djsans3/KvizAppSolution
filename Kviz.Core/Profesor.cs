@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Profesor : Korisnik {
+public class Profesor : Korisnik
+{
+	public Profesor() {	}
 
-	public Profesor() {
+
+	public void UrediIspit()
+	{
 	}
 
-
-	public void UrediIspit() {
+	public void StvoriIspit()
+	{
 	}
 
-	public void StvoriIspit() {
+	public void IzbrisiIspit()
+	{
 	}
-
-	public void IzbrisiIspit() {
-	}
-
 }
