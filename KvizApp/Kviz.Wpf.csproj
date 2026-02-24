@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.24" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Kviz.Core\Kviz.Core.csproj" />
   </ItemGroup>
 
