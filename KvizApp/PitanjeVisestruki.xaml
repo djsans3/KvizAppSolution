@@ -14,7 +14,7 @@
 
         
         <Border Grid.Row="0" 
-                Background="White" 
+                Background="LightYellow" 
                 BorderBrush="Gray" 
                 BorderThickness="2"
                 CornerRadius="10"
@@ -26,7 +26,7 @@
             <StackPanel>
                 <TextBlock Text="Pitanje 1:" 
                            FontSize="18" 
-                           FontWeight="Bold"
+                           FontWeight="ExtraBold" Foreground="Orange"
                            Margin="0,0,0,20"/>
 
                 <TextBlock Text="Koji od sljedećih jezika nije objektno orijentiran?" 
@@ -76,6 +76,9 @@
                     Width="120" 
                     Height="40"
                     FontSize="14"
+                    Foreground="MidnightBlue"
+FontWeight="ExtraBold"
+Background="CornflowerBLue"
                     HorizontalAlignment="Left"
                     Click="btnNatrag_Click"/>
 
@@ -83,7 +86,10 @@
                     Content="Nastavi" 
                     Width="120" 
                     Height="40"
-                    FontSize="14"
+                    FontSize="14" Foreground="MidnightBlue"
+FontWeight="ExtraBold"
+Background="CornflowerBLue"
+                   
                     HorizontalAlignment="Right"
                     Click="btnNastavi_Click"/>
         </Grid>

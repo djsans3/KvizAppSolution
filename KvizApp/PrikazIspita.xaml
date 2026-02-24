@@ -13,19 +13,21 @@
         </Grid.RowDefinitions>
 
        
-        <Grid Grid.Row="0" Background="#F0F0F0" Height="60">
+        <Grid Grid.Row="0" Background="LightYellow" Height="60">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" Text="kVIz" 
-                       FontSize="24" FontWeight="Bold"
-                       VerticalAlignment="Center" Margin="20,0"/>
+                       FontSize="24" FontWeight="ExtraBold" Foreground="Orange"
+                       VerticalAlignment="Center" Margin="20,0,20,0"/>
 
             <Button Grid.Column="1" Content="Odjava" 
                     Width="100" Height="35" Margin="20,0"
-                    FontSize="14"
+                    FontSize="14" Foreground="MidnightBlue"
+FontWeight="ExtraBold"
+Background="CornflowerBLue"
                     Click="btnOdjava_Click"/>
         </Grid>
 
@@ -33,8 +35,8 @@
         <DataGrid Grid.Row="1" x:Name="dgIspiti" 
                   HeadersVisibility="Column"
                   Margin="20,20,20,99"
-                  FontSize="14"
-                  RowHeight="40"> 
+                  FontSize="14" Background="PeachPuff"
+                  RowHeight="40" SelectionChanged="dgIspiti_SelectionChanged"> 
             <!--SelectionChanged="dgIspiti_SelectionChanged"-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="br." 
@@ -54,6 +56,9 @@
                         <DataTemplate>
                             <Button Content="Ispitaj se" 
                                     Height="30" 
+                                    Foreground="MidnightBlue"
+FontWeight="ExtraBold"
+Background="CornflowerBLue"
                                     Click="btnIspitajSe_Click"
                                     Tag="{Binding}"/>
                         </DataTemplate>

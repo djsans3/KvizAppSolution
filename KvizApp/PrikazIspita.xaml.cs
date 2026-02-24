@@ -62,6 +62,11 @@ namespace Kviz.Wpf
             mainWindow.Show();
             this.Close();
         }
+
+        private void dgIspiti_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     public enum TipPitanja

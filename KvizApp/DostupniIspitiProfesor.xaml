@@ -14,19 +14,25 @@
         </Grid.RowDefinitions>
 
         
-        <Grid Grid.Row="0" Background="#F0F0F0" Height="60">
+        <Grid Grid.Row="0" Background="LightYellow" Height="60">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" Text="kVIz" 
-                       FontSize="24" FontWeight="Bold"
-                       VerticalAlignment="Center" Margin="20,0"/>
+                       FontSize="24" FontWeight="ExtraBold"
+                       Foreground="Orange"
+                    
+                       VerticalAlignment="Center" Margin="20,0"
+                       />
 
             <Button Grid.Column="1" Content="Odjava" 
                     Width="100" Height="35" Margin="20,0"
                     FontSize="14"
+                    Foreground="MidnightBlue"
+                    FontWeight="ExtraBold"
+                    Background="CornflowerBLue"
                     Click="btnOdjava_Click"/>
         </Grid>
 
@@ -39,7 +45,8 @@
                   HeadersVisibility="Column"
                   Margin="20"
                   FontSize="14"
-                  RowHeight="50">
+                  Background="PeachPuff"
+                  RowHeight="50" SelectionChanged="dgIspiti_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Redni broj" 
                                   Binding="{Binding RedniBroj}" 
@@ -53,6 +60,9 @@
                 <DataGridTextColumn Header="Bodovi" 
                                   Binding="{Binding Bodovi}" 
                                   Width="100"/>
+                <DataGridTextColumn Header="Rang" 
+                  Binding="{Binding BrojPitanja}" 
+                  Width="100"/>
 
                 
                 <DataGridTemplateColumn Header="Uredi" Width="80">
@@ -85,8 +95,12 @@
         
         <Button Grid.Row="2" Content="Dodaj ispit" 
                 Width="200" Height="50"
-                FontSize="16" FontWeight="Bold"
+                FontSize="16" 
+                
                 Margin="0,0,0,30"
+                Foreground="MidnightBlue"
+                FontWeight="ExtraBold"
+                Background="CornflowerBLue"
                 HorizontalAlignment="Center"
                 Click="btnDodajIspit_Click"/>
     </Grid>

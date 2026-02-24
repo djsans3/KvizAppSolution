@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Zavrsetak" Height="450" Width="800">
     <Grid>
-        <Border Background="White" 
+        <Border Background="LightYellow" 
                 BorderBrush="Gray" 
                 BorderThickness="2"
                 CornerRadius="10"
@@ -16,7 +16,7 @@
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Završetak kreiranja ispita" 
                            FontSize="22" 
-                           FontWeight="Bold"
+                           FontWeight="ExtraBold" Foreground="Orange"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,30"/>
 
@@ -44,7 +44,9 @@
                         Width="150" 
                         Height="45"
                         FontSize="16"
-                        FontWeight="Bold"
+                        Foreground="MidnightBlue"
+                        FontWeight="ExtraBold"
+                        Background="CornflowerBLue"
                         HorizontalAlignment="Center"
                         Click="btnZavrsi_Click"/>
             </StackPanel>
