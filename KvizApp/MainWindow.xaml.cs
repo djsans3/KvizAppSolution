@@ -1,14 +1,6 @@
-﻿using Kviz.Wpf;
-using System.Text;
+﻿using Kviz.Core;
+using Kviz.Wpf;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace KvizApp
 {
@@ -21,6 +13,7 @@ namespace KvizApp
         {
             InitializeComponent();
         }
+
         private void btnPrijava_Click(object sender, RoutedEventArgs e)
         {
             string korisnickoIme = txtKorisnickoIme.Text;
@@ -29,28 +22,30 @@ namespace KvizApp
             if (!string.IsNullOrWhiteSpace(korisnickoIme) &&
                 !string.IsNullOrWhiteSpace(lozinka))
             {
-                if (korisnickoIme == "profesor" && lozinka == "87654321")
+                // Koristi factory metodu iz Korisnik klase
+                Korisnik korisnik = Korisnik.ProvjeriKorisnika(korisnickoIme, lozinka);
+
+                if (korisnik != null)
                 {
-                    UspjesnaPrijavaProfesor uspjesnaPrijava = new UspjesnaPrijavaProfesor();
-                    uspjesnaPrijava.Show();
-                    this.Close();
-                }
-                else if (korisnickoIme=="student"&& lozinka == "1234")
-                {
-                    PrikazIspita uspjesnaPrijava=new PrikazIspita();
-                    uspjesnaPrijava.Show();
-                    this.Close();
-                }
-                else if (korisnickoIme == "student" && lozinka == "12345678")
-                {
-                    UspjesnaPrijava uspjesnaPrijava = new UspjesnaPrijava();
-                    uspjesnaPrijava.Show();
-                    this.Close();
+                    TipKorisnika tip = korisnik.Prijava();
+
+                    if (tip == TipKorisnika.Profesor)
+                    {
+                        UspjesnaPrijavaProfesor prozor = new UspjesnaPrijavaProfesor();
+                        prozor.Show();
+                        this.Close();
+                    }
+                    else if (tip == TipKorisnika.Student)
+                    {
+                       PrikazIspita prozor = new PrikazIspita();
+                        prozor.Show();
+                        this.Close();
+                    }
                 }
                 else
                 {
-                    NeuspjelaPrijava neuspjelaPrijava = new NeuspjelaPrijava();
-                    neuspjelaPrijava.Show();
+                    NeuspjelaPrijava prozor = new NeuspjelaPrijava();
+                    prozor.Show();
                     this.Close();
                 }
             }

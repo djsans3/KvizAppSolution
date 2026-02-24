@@ -1,34 +1,93 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Ispit
+namespace Kviz.Core
 {
-	public Ispit()
+	public class Ispit
 	{
-	}
+		private int sifra;
+		private List<Pitanje> skupPitanja;
+		private int trenBrojTocnihOdg;
 
-	public int sifra;
+		public Ispit()
+		{
+			skupPitanja = new List<Pitanje>();
+			trenBrojTocnihOdg = 0;
+		}
 
-    public List<Pitanje> SkupPitanja;
+		public int Sifra
+		{
+			get { return sifra; }
+			set { sifra = value; }
+		}
 
-	public int trenBrojTocnihOdg;
+		public List<Pitanje> SkupPitanja
+		{
+			get { return skupPitanja; }
+			set { skupPitanja = value; }
+		}
 
-	public void BrojBodovaMax()
-	{
-	}
+		public int TrenBrojTocnihOdg
+		{
+			get { return trenBrojTocnihOdg; }
+			set { trenBrojTocnihOdg = value; }
+		}
 
-	public void PrintRezultat()
-	{
-	}
+		public int BrojBodovaMax()
+		{
+			return skupPitanja.Count;
+		}
 
-	public void SpremiRezultat()
-	{
-	}
+		public void PrintRezultat()
+		{
+			// TODO: SQLite - Dohvati rezultat iz baze i prikaži ga
+			// Primjer:
+			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
+			// {
+			//     connection.Open();
+			//     var command = connection.CreateCommand();
+			//     command.CommandText = "SELECT * FROM Rezultati WHERE IspitId = @ispitId";
+			//     command.Parameters.AddWithValue("@ispitId", this.Sifra);
+			//     var reader = command.ExecuteReader();
+			//     // Prikaži rezultate
+			// }
+		}
 
-	public void PrintRangLista()
-	{
+		public void SpremiRezultat()
+		{
+			// TODO: SQLite - Spremi rezultat u bazu podataka
+			// Primjer:
+			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
+			// {
+			//     connection.Open();
+			//     var command = connection.CreateCommand();
+			//     command.CommandText = @"INSERT INTO Rezultati (IspitId, StudentId, BrojTocnihOdgovora, Datum) 
+			//                              VALUES (@ispitId, @studentId, @brojTocnih, @datum)";
+			//     command.Parameters.AddWithValue("@ispitId", this.Sifra);
+			//     command.Parameters.AddWithValue("@studentId", studentId);
+			//     command.Parameters.AddWithValue("@brojTocnih", this.TrenBrojTocnihOdg);
+			//     command.Parameters.AddWithValue("@datum", DateTime.Now);
+			//     command.ExecuteNonQuery();
+			// }
+		}
+
+		public void PrintRangLista()
+		{
+			// TODO: SQLite - Dohvati rang listu iz baze podataka
+			// Primjer:
+			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
+			// {
+			//     connection.Open();
+			//     var command = connection.CreateCommand();
+			//     command.CommandText = @"SELECT StudentId, BrojTocnihOdgovora FROM Rezultati 
+			//                              WHERE IspitId = @ispitId 
+			//                              ORDER BY BrojTocnihOdgovora DESC";
+			//     command.Parameters.AddWithValue("@ispitId", this.Sifra);
+			//     var reader = command.ExecuteReader();
+			//     // Prikaži rang listu
+			// }
+		}
 	}
 }

@@ -1,53 +1,87 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
-public class Korisnik
+namespace Kviz.Core
 {
-	public Korisnik()
-	{
-        username = "";
-		password = "";
-    }
-
-	public string username;
-
-	public string password;
-
 	public enum TipKorisnika
 	{
 		Student,
 		Profesor,
 		Nepoznato
 	}
-	public TipKorisnika Prijava()
+
+	public abstract class Korisnik
 	{
-		if (username == "student" && password == "student")
+		private string username;
+		private string password;
+
+		public Korisnik()
 		{
-            // pripremi stvari za studenta
-			return TipKorisnika.Student;
+			username = "";
+			password = "";
 		}
-		else if (username == "profesor" && password == "profesor")
-		{
-			// pripremi stvari za profesora
-			return TipKorisnika.Profesor;
-        }
-        else
-		{
-            // pogrešan unos
-            return TipKorisnika.Nepoznato;
-        }
-    }
 
-	public void Odjava()
-	{
-	}
+		public string Username
+		{
+			get { return username; }
+			set { username = value; }
+		}
 
-	public void PregledIspita()
-	{
+		public string Password
+		{
+			get { return password; }
+			set { password = value; }
+		}
+
+		public abstract TipKorisnika Prijava();
+
+		public virtual void Odjava()
+		{
+		}
+
+		public virtual void PregledIspita()
+		{
+			// TODO: SQLite - Dohvati ispite iz baze podataka za ovog korisnika
+			// Primjer:
+			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
+			// {
+			//     connection.Open();
+			//     var command = connection.CreateCommand();
+			//     command.CommandText = "SELECT * FROM Ispiti WHERE KorisnikId = @korisnikId";
+			//     command.Parameters.AddWithValue("@korisnikId", this.Username);
+			//     // Izvrsiti upit and popuniti listu ispita
+			// }
+		}
+
+		/// <summary>
+		/// Factory metoda za provjeru korisnika i vracanje odgovarajuce instance
+		/// </summary>
+		public static Korisnik ProvjeriKorisnika(string korisnickoIme, string lozinka)
+		{
+			// Profesor
+			if (korisnickoIme == "profesor" && lozinka == "87654321")
+			{
+				Profesor profesor = new Profesor();
+				profesor.Username = korisnickoIme;
+				profesor.Password = lozinka;
+				return profesor;
+			}
+			// Student
+			else if (korisnickoIme == "student" && lozinka == "12345678")
+			{
+				Student student = new Student();
+				student.Username = korisnickoIme;
+				student.Password = lozinka;
+				return student;
+			}
+			// Neuspjesna prijava
+			else
+			{
+				return null;
+			}
+		}
 	}
-	
 }
