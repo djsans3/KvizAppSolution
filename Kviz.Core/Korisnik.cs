@@ -9,40 +9,45 @@ public class Korisnik
 {
 	public Korisnik()
 	{
-	}
+        username = "";
+		password = "";
+    }
 
-	public string username = " ";
+	public string username;
 
-	public string password = " ";
+	public string password;
 
-	public void Prijava()
+	public enum TipKorisnika
 	{
-		while (true)
+		Student,
+		Profesor,
+		Nepoznato
+	}
+	public TipKorisnika Prijava()
+	{
+		if (username == "student" && password == "student")
 		{
-			if (username == "admin" && password == "admin")
-			{
-				// pripremi stvari za admina
-				break;
-			}
-			else if (username == "korisnik" && password == "korisnik")
-			{
-				// pripremi stvari za korisnika
-				break;
-			}
-			else
-			{
-				// pogrešan unos
-				break;
-			}
+            // pripremi stvari za studenta
+			return TipKorisnika.Student;
 		}
+		else if (username == "profesor" && password == "profesor")
+		{
+			// pripremi stvari za profesora
+			return TipKorisnika.Profesor;
+        }
+        else
+		{
+            // pogrešan unos
+            return TipKorisnika.Nepoznato;
+        }
+    }
+
+	public void Odjava()
+	{
 	}
 
-	public void Odjava() {
-		// TODO implement here
-	}
-
-	public void PregledIspita() {
-		// TODO implement here
+	public void PregledIspita()
+	{
 	}
 	
 }
