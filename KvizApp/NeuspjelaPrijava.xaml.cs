@@ -1,5 +1,9 @@
 ﻿using Kviz.Wpf;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,18 +17,19 @@ using System.Windows.Shapes;
 namespace KvizApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NeuspjelaPrijava.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NeuspjelaPrijava : Window
     {
-        public MainWindow()
+        public NeuspjelaPrijava()
         {
             InitializeComponent();
         }
-        private void btnPrijava_Click(object sender, RoutedEventArgs e)
+
+        private void btnPrijava2_Click(object sender, RoutedEventArgs e)
         {
-            string korisnickoIme = txtKorisnickoIme.Text;
-            string lozinka = txtLozinka.Password;
+            string korisnickoIme = txtKorisnickoIme2.Text;
+            string lozinka = txtLozinka2.Password;
 
             if (!string.IsNullOrWhiteSpace(korisnickoIme) &&
                 !string.IsNullOrWhiteSpace(lozinka))
@@ -35,9 +40,9 @@ namespace KvizApp
                     uspjesnaPrijava.Show();
                     this.Close();
                 }
-                else if (korisnickoIme=="student"&& lozinka == "1234")
+                else if (korisnickoIme == "student" && lozinka == "1234")
                 {
-                    PrikazIspita uspjesnaPrijava=new PrikazIspita();
+                    PrikazIspita uspjesnaPrijava = new PrikazIspita();
                     uspjesnaPrijava.Show();
                     this.Close();
                 }
@@ -49,9 +54,8 @@ namespace KvizApp
                 }
                 else
                 {
-                    NeuspjelaPrijava neuspjelaPrijava = new NeuspjelaPrijava();
-                    neuspjelaPrijava.Show();
-                    this.Close();
+                    MessageBox.Show("Neispravni podatci", "Greška",
+                                  MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
@@ -62,3 +66,4 @@ namespace KvizApp
         }
     }
 }
+
