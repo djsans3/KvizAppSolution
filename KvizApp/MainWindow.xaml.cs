@@ -19,8 +19,7 @@ namespace KvizApp
             string korisnickoIme = txtKorisnickoIme.Text;
             string lozinka = txtLozinka.Password;
 
-            if (!string.IsNullOrWhiteSpace(korisnickoIme) &&
-                !string.IsNullOrWhiteSpace(lozinka))
+            if (!string.IsNullOrWhiteSpace(korisnickoIme) && !string.IsNullOrWhiteSpace(lozinka))
             {
                 // Koristi factory metodu iz Korisnik klase
                 Korisnik korisnik = Korisnik.ProvjeriKorisnika(korisnickoIme, lozinka);
