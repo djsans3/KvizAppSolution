@@ -33,14 +33,9 @@ namespace Kviz.Wpf
 
         private void btnNatrag_Click(object sender, RoutedEventArgs e)
         {
-            if (pitanja.Count > 0)
-            {
-                pitanja.RemoveAt(pitanja.Count - 1);
-                brojPitanja--;
-                txtBrojPitanja.Text = $"Pitanje {brojPitanja}:";
-                txtPitanje.Clear();
-                txtOdgovor.Clear();
-            }
+            UspjesnaPrijavaProfesor uspjesnaPrijava = new UspjesnaPrijavaProfesor(profesorUsername);
+            uspjesnaPrijava.Show();
+            this.Close();
         }
 
         private void btnDodajTekstualno_Click(object sender, RoutedEventArgs e)

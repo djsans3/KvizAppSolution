@@ -48,8 +48,7 @@ namespace Kviz.Wpf
         {
             if (sender is System.Windows.Controls.Button btn && btn.Tag is Kviz.Core.Ispit ispit)
             {
-                MessageBox.Show($"Uređivanje ispita: {ispit.Naziv}", "Info");
-                DodajPitanjeTekstualno urediIspit = new DodajPitanjeTekstualno(profesorUsername);
+                UrediIspit urediIspit = new UrediIspit(ispit.Sifra, profesorUsername);
                 urediIspit.Show();
                 this.Close();
             }
@@ -60,7 +59,7 @@ namespace Kviz.Wpf
             if (sender is System.Windows.Controls.Button btn && btn.Tag is Kviz.Core.Ispit ispit)
             {
                 var rezultat = MessageBox.Show(
-                    $"Jeste li sigurni da želite obrisati ispit '{ispit.Naziv}'?",
+                    $"Jeste li sigurni da zelite obrisati ispit '{ispit.Naziv}'?",
                     "Potvrda brisanja",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
@@ -73,7 +72,7 @@ namespace Kviz.Wpf
                         db.SaveChanges();
                     }
                     ispiti.Remove(ispit);
-                    MessageBox.Show("Ispit je uspješno obrisan!", "Uspjeh");
+                    MessageBox.Show("Ispit je uspjesno obrisan!", "Uspjeh");
                 }
             }
         }

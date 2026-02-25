@@ -66,6 +66,15 @@ namespace Kviz.Wpf
             }
         }
 
+        private void btnRangLista_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is System.Windows.Controls.Button btn && btn.Tag is Kviz.Core.Ispit ispit)
+            {
+                var rangLista = new RangLista(ispit.Sifra, ispit.Naziv);
+                rangLista.Show();
+            }
+        }
+
         private void btnOdjava_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

@@ -14,6 +14,7 @@ namespace Kviz.Wpf
         private double postotak;
         private string ocjena;
         private int pozicijaRangListe;
+        private int ispitId;
 
         public Rezultat(int ostvareni, int maksimalni, int ispitId, string studentUsername)
         {
@@ -21,6 +22,7 @@ namespace Kviz.Wpf
 
             ostvareniBodovi = ostvareni;
             maksimalniBodovi = maksimalni;
+            this.ispitId = ispitId;
 
             postotak = maksimalniBodovi > 0
                 ? ((double)ostvareniBodovi / maksimalniBodovi) * 100
@@ -67,6 +69,26 @@ namespace Kviz.Wpf
                 return "Dovoljan (2)";
             else
                 return "Nedovoljan (1)";
+        }
+
+        private void btnRangLista_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string nazivIspita = "";
+                using (var db = new KvizDbContext())
+                {
+                    var ispit = db.Ispiti.FirstOrDefault(i => i.Sifra == ispitId);
+                    if (ispit != null)
+                        nazivIspita = ispit.Naziv;
+                }
+                var rangLista = new RangLista(ispitId, nazivIspita);
+                rangLista.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Greška: {ex.Message}", "Greška");
+            }
         }
 
         private void btnPovratak_Click(object sender, RoutedEventArgs e)

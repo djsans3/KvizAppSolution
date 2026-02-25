@@ -67,6 +67,19 @@ Background="CornflowerBLue"
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Rang Lista" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Rang Lista" 
+                                    Height="30" 
+                                    Foreground="MidnightBlue"
+                                    FontWeight="ExtraBold"
+                                    Background="CornflowerBlue"
+                                    Click="btnRangLista_Click"
+                                    Tag="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

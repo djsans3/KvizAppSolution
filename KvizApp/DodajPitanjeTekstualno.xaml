@@ -65,7 +65,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" 
-                    Content="Natrag" 
+                    Content="Odustani" 
                     Width="100" 
                     Height="40"
                     FontSize="14"

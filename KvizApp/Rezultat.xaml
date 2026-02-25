@@ -99,6 +99,15 @@ Background="CornflowerBLue"
                     Margin="10"
                     Click="btnPovratak_Click"/>
 
+            <Button Content="Rang Lista" 
+                    Width="120" 
+                    Height="40"
+                    FontSize="14" Foreground="MidnightBlue"
+                    FontWeight="ExtraBold"
+                    Background="CornflowerBlue"
+                    Margin="10"
+                    Click="btnRangLista_Click"/>
+
             <Button Content="Odjava" 
                     Width="100" 
                     Height="40"
