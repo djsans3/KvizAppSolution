@@ -28,7 +28,7 @@ namespace Kviz.Wpf
 
             ocjena = OdrediOcjenu(postotak);
 
-            // Izračunaj rang poziciju iz baze
+            // Izračunaj rang iz baze
             pozicijaRangListe = IzracunajRang(ispitId, ostvareni);
 
             txtBodovi.Text = $"{ostvareniBodovi}/{maksimalniBodovi}";

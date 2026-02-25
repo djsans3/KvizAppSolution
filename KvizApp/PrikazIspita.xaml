@@ -33,29 +33,35 @@ Background="CornflowerBLue"
 
 
         <DataGrid Grid.Row="1" x:Name="dgIspiti" 
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
                   HeadersVisibility="Column"
                   Margin="20,20,20,99"
                   FontSize="14" Background="PeachPuff"
                   RowHeight="40" SelectionChanged="dgIspiti_SelectionChanged"> 
-            <!--SelectionChanged="dgIspiti_SelectionChanged"-->
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Šifra" 
                                   Binding="{Binding Sifra}" 
-                                  Width="50"/>
-                <DataGridTextColumn Header="Naziv ispita" 
+                                  Width="60"/>
+                <DataGridTextColumn Header="Naziv" 
                                   Binding="{Binding Naziv}" 
                                   Width="*"/>
+                <DataGridTextColumn Header="Ime profesora" 
+                                  Binding="{Binding ProfesorUsername}" 
+                                  Width="130"/>
                 <DataGridTextColumn Header="Broj pitanja" 
                                   Binding="{Binding SkupPitanja.Count, Mode=OneWay}" 
-                                  Width="120"/>
+                                  Width="100"/>
                 <DataGridTemplateColumn Header="Pokreni ispit" Width="120">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Ispitaj se" 
                                     Height="30" 
                                     Foreground="MidnightBlue"
-FontWeight="ExtraBold"
-Background="CornflowerBLue"
+                                    FontWeight="ExtraBold"
+                                    Background="CornflowerBlue"
                                     Click="btnIspitajSe_Click"
                                     Tag="{Binding}"/>
                         </DataTemplate>
