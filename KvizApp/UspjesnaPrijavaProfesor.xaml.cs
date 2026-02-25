@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace Kviz.Wpf
 {
-    /// <summary>
-    /// Interaction logic for UspjesnaPrijavaProfesor.xaml
-    /// </summary>
+
     public partial class UspjesnaPrijavaProfesor : Window
     {
         private string profesorUsername;

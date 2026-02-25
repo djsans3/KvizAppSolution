@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Kviz.Wpf
 {
-    /// <summary>
-    /// Interaction logic for DodajPitanjeVisestruki.xaml
-    /// </summary>
     public partial class DodajPitanjeVisestruki : Window
     {
         private int brojPitanja = 1;

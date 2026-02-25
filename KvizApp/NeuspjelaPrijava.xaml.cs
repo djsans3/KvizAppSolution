@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace KvizApp
 {
-    /// <summary>
-    /// Interaction logic for NeuspjelaPrijava.xaml
-    /// </summary>
     public partial class NeuspjelaPrijava : Window
     {
         public NeuspjelaPrijava()

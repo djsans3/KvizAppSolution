@@ -110,8 +110,7 @@ namespace Kviz.Wpf
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Greška pri spremanju rezultata:\n{ex.InnerException?.Message ?? ex.Message}",
-                    "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Greška pri spremanju rezultata:\n{ex.InnerException?.Message ?? ex.Message}", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             var rezultatProzor = new Rezultat(brojTocnih, pitanja.Count, ispit.Sifra, studentUsername);

@@ -19,9 +19,6 @@ using System.Windows.Shapes;
 
 namespace Kviz.Wpf
 {
-    /// <summary>
-    /// Interaction logic for DostupniIspitiProfesor.xaml
-    /// </summary>
     public partial class DostupniIspitiProfesor : Window
     {
         private ObservableCollection<Kviz.Core.Ispit> ispiti;

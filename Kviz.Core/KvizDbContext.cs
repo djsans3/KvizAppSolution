@@ -32,7 +32,6 @@ namespace Kviz.Core
 		{
 			base.OnModelCreating(modelBuilder);
 
-			// TPH (Table Per Hierarchy) za Korisnik hijerarhiju
 			modelBuilder.Entity<Korisnik>()
 				.HasDiscriminator<string>("TipKorisnika")
 				.HasValue<Profesor>("Profesor")
@@ -41,7 +40,6 @@ namespace Kviz.Core
 			modelBuilder.Entity<Korisnik>()
 				.HasKey(k => k.Username);
 
-			// TPH za Pitanje hijerarhiju
 			modelBuilder.Entity<Pitanje>()
 				.HasDiscriminator<string>("TipPitanja")
 				.HasValue<SingleChoicePitanje>("SingleChoice")
@@ -71,7 +69,7 @@ namespace Kviz.Core
 				.WithMany(s => s.Rezultati)
 				.HasForeignKey(r => r.StudentUsername);
 
-			// Seed podataka - hardkodirani korisnici
+			// Hardkodirani korisnici
 			modelBuilder.Entity<Profesor>().HasData(
 				new Profesor { Username = "profesor", Password = "87654321" }
 			);

@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Kviz.Wpf
 {
-    /// <summary>
-    /// Interaction logic for DodajPitanjeTekstualno.xaml
-    /// </summary>
+
     public partial class DodajPitanjeTekstualno : Window
     {
         private int brojPitanja = 1;

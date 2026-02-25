@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Kviz.Wpf
 {
-    /// <summary>
-    /// Interaction logic for Zavrsetak.xaml
-    /// </summary>
+
     public partial class Zavrsetak : Window
     {
         private string profesorUsername;
@@ -34,8 +32,7 @@ namespace Kviz.Wpf
         {
             if (string.IsNullOrWhiteSpace(txtNazivIspita.Text))
             {
-                MessageBox.Show("Molimo unesite naziv ispita!",
-                              "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Molimo unesite naziv ispita!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 

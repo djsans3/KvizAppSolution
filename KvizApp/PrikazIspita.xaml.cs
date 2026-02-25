@@ -18,9 +18,7 @@ using System.Windows.Shapes;
 
 namespace Kviz.Wpf
 {
-    /// <summary>
-    /// Interaction logic for PrikazIspita.xaml
-    /// </summary>
+
     public partial class PrikazIspita : Window
     {
         public PrikazIspita()

@@ -4,9 +4,6 @@ using System.Windows;
 
 namespace KvizApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -21,7 +18,6 @@ namespace KvizApp
 
             if (!string.IsNullOrWhiteSpace(korisnickoIme) && !string.IsNullOrWhiteSpace(lozinka))
             {
-                // Koristi factory metodu iz Korisnik klase
                 Korisnik korisnik = Korisnik.ProvjeriKorisnika(korisnickoIme, lozinka);
 
                 if (korisnik != null)
@@ -50,8 +46,7 @@ namespace KvizApp
             }
             else
             {
-                MessageBox.Show("Molimo unesite korisničko ime i lozinku!",
-                              "Greška", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Molimo unesite korisničko ime i lozinku!", "Greška", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

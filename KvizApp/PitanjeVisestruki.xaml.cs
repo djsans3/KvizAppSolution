@@ -7,9 +7,7 @@ using System.Windows.Controls;
 
 namespace Kviz.Wpf
 {
-    /// <summary>
-    /// Interaction logic for PitanjeVisestruki.xaml
-    /// </summary>
+
     public partial class PitanjeVisestruki : Window
     {
         private Kviz.Core.Ispit ispit;
