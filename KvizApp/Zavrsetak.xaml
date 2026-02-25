@@ -46,7 +46,7 @@
                         FontSize="16"
                         Foreground="MidnightBlue"
                         FontWeight="ExtraBold"
-                        Background="CornflowerBLue"
+                        Background="CornflowerBlue"
                         HorizontalAlignment="Center"
                         Click="btnZavrsi_Click"/>
             </StackPanel>

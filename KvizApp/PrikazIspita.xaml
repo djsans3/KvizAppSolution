@@ -27,7 +27,7 @@
                     Width="100" Height="35" Margin="20,0"
                     FontSize="14" Foreground="MidnightBlue"
 FontWeight="ExtraBold"
-Background="CornflowerBLue"
+Background="CornflowerBlue"
                     Click="btnOdjava_Click"/>
         </Grid>
 

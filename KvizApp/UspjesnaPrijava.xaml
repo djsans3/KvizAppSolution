@@ -27,7 +27,7 @@
                     Width="70" Height="35" Margin="700,12,0,12"
                     FontSize="14" Foreground="MidnightBlue"
 FontWeight="ExtraBold"
-Background="CornflowerBLue"
+Background="CornflowerBlue"
                     Click="btnOdjava_Click" HorizontalAlignment="Left" Grid.ColumnSpan="2">
                 <UIElement.RenderTransform>
                     <TransformGroup>

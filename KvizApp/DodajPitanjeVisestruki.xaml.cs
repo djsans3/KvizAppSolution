@@ -69,6 +69,12 @@ namespace Kviz.Wpf
 
         private void btnDodajVisestruki_Click(object sender, RoutedEventArgs e)
         {
+            if (pitanja.Count >= 10)
+            {
+                MessageBox.Show("Ispit moze imati maksimalno 10 pitanja!", "Upozorenje");
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtPitanje.Text))
             {
                 MessageBox.Show("Molimo unesite pitanje!", "Upozorenje");
@@ -151,6 +157,12 @@ namespace Kviz.Wpf
 
         private void btnDodajTekstualno_Click(object sender, RoutedEventArgs e)
         {
+            if (pitanja.Count >= 10)
+            {
+                MessageBox.Show("Ispit moze imati maksimalno 10 pitanja!", "Upozorenje");
+                return;
+            }
+
             DodajPitanjeTekstualno tekstualno = new DodajPitanjeTekstualno(profesorUsername, pitanja);
             tekstualno.Show();
             this.Close();
@@ -158,9 +170,9 @@ namespace Kviz.Wpf
 
         private void btnZavrsi_Click(object sender, RoutedEventArgs e)
         {
-            if (pitanja.Count == 0)
+            if (pitanja.Count < 5)
             {
-                MessageBox.Show("Morate dodati barem jedno pitanje!", "Upozorenje");
+                MessageBox.Show($"Ispit mora imati minimalno 5 pitanja! Trenutno imate {pitanja.Count}.", "Upozorenje");
                 return;
             }
 

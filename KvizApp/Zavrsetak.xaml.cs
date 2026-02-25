@@ -36,6 +36,20 @@ namespace Kviz.Wpf
                 return;
             }
 
+            if (pitanja.Count < 5)
+            {
+                MessageBox.Show($"Ispit mora imati minimalno 5 pitanja! Trenutno imate {pitanja.Count}.", "Upozorenje",
+                              MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (pitanja.Count > 10)
+            {
+                MessageBox.Show($"Ispit moze imati maksimalno 10 pitanja! Trenutno imate {pitanja.Count}.", "Upozorenje",
+                              MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             try
             {
                 using (var db = new KvizDbContext())

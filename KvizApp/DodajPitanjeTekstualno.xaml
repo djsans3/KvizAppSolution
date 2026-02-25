@@ -82,7 +82,7 @@
                     Margin="10,0"
                     Foreground="MidnightBlue"
                     FontWeight="ExtraBold"
-                    Background="CornflowerBLue"
+                    Background="CornflowerBlue"
                     HorizontalAlignment="Center"
                     Click="btnZavrsi_Click"/>
 
@@ -93,7 +93,7 @@
                     FontSize="14"
                     Foreground="MidnightBlue"
                     FontWeight="ExtraBold"
-                    Background="CornflowerBLue"
+                    Background="CornflowerBlue"
                     Margin="0,0,10,0"
                     Click="btnDodajTekstualno_Click"/>
 
@@ -103,7 +103,7 @@
                     Height="40"
                     Foreground="MidnightBlue"
                     FontWeight="ExtraBold"
-                    Background="CornflowerBLue"
+                    Background="CornflowerBlue"
                     FontSize="14"
                     Click="btnDodajVisestruki_Click"/>
         </Grid>

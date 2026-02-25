@@ -37,7 +37,7 @@
                 Content="Prijava" Width="120" Height="35"
                 Margin="0,20" FontSize="14" Foreground="MidnightBlue"
 FontWeight="ExtraBold"
-Background="CornflowerBLue"
+Background="CornflowerBlue"
                 Click="btnPrijava2_Click"/>
 
     </Grid>

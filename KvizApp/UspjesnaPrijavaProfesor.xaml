@@ -26,7 +26,7 @@
                     Width="100" Height="35" Margin="20,0"
                     FontSize="14" Foreground="MidnightBlue"
                     FontWeight="ExtraBold"
-                    Background="CornflowerBLue"
+                    Background="CornflowerBlue"
                     Click="btnOdjava_Click"/>
         </Grid>
 
@@ -38,7 +38,7 @@
                     Width="250" Height="60"
                     FontSize="20" FontWeight="ExtraBold"
                     Foreground="MidnightBlue"
-                    Background="CornflowerBLue"
+                    Background="CornflowerBlue"
                     Margin="0,0,0,20"
                     Click="btnPregledajIspite_Click"/>
 
@@ -46,7 +46,7 @@
                     Width="250" Height="60"
                     FontSize="20" FontWeight="ExtraBold"
                     Foreground="MidnightBlue"
-                    Background="CornflowerBLue"
+                    Background="CornflowerBlue"
                     Click="btnDodajIspit_Click"/>
         </StackPanel>
     </Grid>

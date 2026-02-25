@@ -37,7 +37,7 @@
                 Margin="0,20" FontSize="14"
                 Foreground="MidnightBlue"
 FontWeight="ExtraBold"
-Background="CornflowerBLue"
+Background="CornflowerBlue"
                 Click="btnPrijava_Click"/>
 
     </Grid>

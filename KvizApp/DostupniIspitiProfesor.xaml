@@ -32,7 +32,7 @@
                     FontSize="14"
                     Foreground="MidnightBlue"
                     FontWeight="ExtraBold"
-                    Background="CornflowerBLue"
+                    Background="CornflowerBlue"
                     Click="btnOdjava_Click"/>
         </Grid>
 
@@ -94,7 +94,7 @@
                 Margin="0,0,0,30"
                 Foreground="MidnightBlue"
                 FontWeight="ExtraBold"
-                Background="CornflowerBLue"
+                Background="CornflowerBlue"
                 HorizontalAlignment="Center"
                 Click="btnDodajIspit_Click"/>
     </Grid>

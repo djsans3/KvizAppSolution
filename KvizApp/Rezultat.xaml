@@ -95,7 +95,7 @@
                     Height="40"
                     FontSize="14" Foreground="MidnightBlue"
 FontWeight="ExtraBold"
-Background="CornflowerBLue"
+Background="CornflowerBlue"
                     Margin="10"
                     Click="btnPovratak_Click"/>
 
@@ -113,7 +113,7 @@ Background="CornflowerBLue"
                     Height="40"
                     FontSize="14" Foreground="MidnightBlue"
 FontWeight="ExtraBold"
-Background="CornflowerBLue"
+Background="CornflowerBlue"
                     Margin="10"
                     Click="btnOdjava_Click"/>
         </StackPanel>

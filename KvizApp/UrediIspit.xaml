@@ -28,7 +28,7 @@
                     Width="100" Height="35" Margin="20,0"
                     FontSize="14" Foreground="MidnightBlue"
                     FontWeight="ExtraBold"
-                    Background="CornflowerBLue"
+                    Background="CornflowerBlue"
                     Click="btnOdjava_Click"/>
         </Grid>
 
@@ -45,23 +45,24 @@
             <Button Content="Natrag" 
                     Width="120" Height="40"
                     FontSize="14" Foreground="MidnightBlue"
-                    FontWeight="ExtraBold" Background="CornflowerBLue"
+                    FontWeight="ExtraBold" Background="CornflowerBlue"
                     Margin="10,0"
                     Click="btnNatrag_Click"/>
 
             <Button Content="Spremi promjene" 
                     Width="160" Height="40"
                     FontSize="14" Foreground="MidnightBlue"
-                    FontWeight="ExtraBold" Background="CornflowerBLue"
+                    FontWeight="ExtraBold" Background="CornflowerBlue"
                     Margin="10,0"
                     Click="btnSpremi_Click"/>
 
             <Button Content="Obrisi pitanje" 
                     Width="140" Height="40"
                     FontSize="14" Foreground="MidnightBlue"
-                    FontWeight="ExtraBold" Background="CornflowerBLue"
+                    FontWeight="ExtraBold" Background="CornflowerBlue"
                     Margin="10,0"
                     Click="btnObrisiPitanje_Click"/>
         </StackPanel>
     </Grid>
 </Window>
+ 

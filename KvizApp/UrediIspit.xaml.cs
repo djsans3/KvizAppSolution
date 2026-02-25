@@ -331,6 +331,12 @@ namespace Kviz.Wpf
                 return;
             }
 
+            if (pitanja.Count - zaObrisati.Count < 5)
+            {
+                MessageBox.Show($"Ispit mora imati minimalno 5 pitanja! Nakon brisanja bi ostalo {pitanja.Count - zaObrisati.Count}.", "Upozorenje");
+                return;
+            }
+
             var rezultat = MessageBox.Show(
                 $"Jeste li sigurni da zelite obrisati {zaObrisati.Count} pitanje/pitanja?",
                 "Potvrda brisanja",
