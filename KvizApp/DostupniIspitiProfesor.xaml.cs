@@ -1,4 +1,6 @@
-﻿using KvizApp;
+﻿using Kviz.Core;
+using Microsoft.EntityFrameworkCore;
+using KvizApp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,7 +16,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
 
 namespace Kviz.Wpf
 {
@@ -23,33 +24,35 @@ namespace Kviz.Wpf
     /// </summary>
     public partial class DostupniIspitiProfesor : Window
     {
-        private ObservableCollection<Ispit> ispiti;
-        public DostupniIspitiProfesor()
+        private ObservableCollection<Kviz.Core.Ispit> ispiti;
+        private string profesorUsername;
+
+        public DostupniIspitiProfesor(string profesorUsername = "profesor")
         {
             InitializeComponent();
+            this.profesorUsername = profesorUsername;
             UcitajIspite();
         }
 
         private void UcitajIspite()
         {
-            ispiti = new ObservableCollection<Ispit>
+            using (var db = new KvizDbContext())
             {
-                new Ispit { RedniBroj = 1, NazivIspita = "Matematika - Algebra", BrojPitanja = 20, Bodovi = 100 },
-                new Ispit { RedniBroj = 2, NazivIspita = "Programiranje u C#", BrojPitanja = 15, Bodovi = 75 },
-                new Ispit { RedniBroj = 3, NazivIspita = "Baze podataka", BrojPitanja = 25, Bodovi = 120 },
-                new Ispit { RedniBroj = 4, NazivIspita = "Računalne mreže", BrojPitanja = 18, Bodovi = 90 },
-                new Ispit { RedniBroj = 5, NazivIspita = "Web dizajn", BrojPitanja = 12, Bodovi = 60 }
-            };
-
-            //dgIspiti.ItemsSource = ispiti;
+                var ispitiIzBaze = db.Ispiti
+                    .Include(i => i.SkupPitanja)
+                    .Where(i => i.ProfesorUsername == profesorUsername)
+                    .ToList();
+                ispiti = new ObservableCollection<Kviz.Core.Ispit>(ispitiIzBaze);
+            }
+            dgIspiti.ItemsSource = ispiti;
         }
 
         private void btnUredi_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is System.Windows.Controls.Button btn && btn.Tag is Ispit ispit)
+            if (sender is System.Windows.Controls.Button btn && btn.Tag is Kviz.Core.Ispit ispit)
             {
-                MessageBox.Show($"Uređivanje ispita: {ispit.NazivIspita}", "Info");
-                DodajPitanjeTekstualno urediIspit = new DodajPitanjeTekstualno();
+                MessageBox.Show($"Uređivanje ispita: {ispit.Naziv}", "Info");
+                DodajPitanjeTekstualno urediIspit = new DodajPitanjeTekstualno(profesorUsername);
                 urediIspit.Show();
                 this.Close();
             }
@@ -57,16 +60,21 @@ namespace Kviz.Wpf
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is System.Windows.Controls.Button btn && btn.Tag is Ispit ispit)
+            if (sender is System.Windows.Controls.Button btn && btn.Tag is Kviz.Core.Ispit ispit)
             {
                 var rezultat = MessageBox.Show(
-                    $"Jeste li sigurni da želite obrisati ispit '{ispit.NazivIspita}'?",
+                    $"Jeste li sigurni da želite obrisati ispit '{ispit.Naziv}'?",
                     "Potvrda brisanja",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question);
 
                 if (rezultat == MessageBoxResult.Yes)
                 {
+                    using (var db = new KvizDbContext())
+                    {
+                        db.Ispiti.Remove(ispit);
+                        db.SaveChanges();
+                    }
                     ispiti.Remove(ispit);
                     MessageBox.Show("Ispit je uspješno obrisan!", "Uspjeh");
                 }
@@ -75,7 +83,7 @@ namespace Kviz.Wpf
 
         private void btnDodajIspit_Click(object sender, RoutedEventArgs e)
         {
-            DodajPitanjeTekstualno dodajIspit = new DodajPitanjeTekstualno();
+            DodajPitanjeTekstualno dodajIspit = new DodajPitanjeTekstualno(profesorUsername);
             dodajIspit.Show();
             this.Close();
         }

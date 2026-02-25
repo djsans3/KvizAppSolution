@@ -30,7 +30,7 @@ namespace KvizApp
 
                     if (tip == TipKorisnika.Profesor)
                     {
-                        UspjesnaPrijavaProfesor prozor = new UspjesnaPrijavaProfesor();
+                        UspjesnaPrijavaProfesor prozor = new UspjesnaPrijavaProfesor(korisnik.Username);
                         prozor.Show();
                         this.Close();
                     }

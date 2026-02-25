@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,17 +7,17 @@ namespace Kviz.Core
 {
 	public class Student : Korisnik
 	{
-		private List<Ispit> rijeseniIspiti;
+		private List<Rezultat> rezultati;
 
 		public Student()
 		{
-			rijeseniIspiti = new List<Ispit>();
+			rezultati = new List<Rezultat>();
 		}
 
-		public List<Ispit> RijeseniIspiti
+		public virtual List<Rezultat> Rezultati
 		{
-			get { return rijeseniIspiti; }
-			set { rijeseniIspiti = value; }
+			get { return rezultati; }
+			set { rezultati = value; }
 		}
 
 		public override TipKorisnika Prijava()
@@ -27,31 +27,10 @@ namespace Kviz.Core
 
 		public void RijesiIspit()
 		{
-			// TODO: SQLite - Učitaj ispit iz baze podataka
-			// Primjer:
-			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
-			// {
-			//     connection.Open();
-			//     var command = connection.CreateCommand();
-			//     command.CommandText = "SELECT * FROM Ispiti WHERE IspitId = @ispitId";
-			//     command.Parameters.AddWithValue("@ispitId", ispitId);
-			//     var reader = command.ExecuteReader();
-			//     // Popuniti ispit sa podacima iz baze
-			// }
 		}
 
 		public override void PregledIspita()
 		{
-			// TODO: SQLite - Dohvati sve dostupne ispite iz baze podataka
-			// Primjer:
-			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
-			// {
-			//     connection.Open();
-			//     var command = connection.CreateCommand();
-			//     command.CommandText = "SELECT * FROM Ispiti WHERE Dostupan = 1";
-			//     var reader = command.ExecuteReader();
-			//     // Popuniti listu dostupnih ispita iz baze
-			// }
 		}
 	}
 }

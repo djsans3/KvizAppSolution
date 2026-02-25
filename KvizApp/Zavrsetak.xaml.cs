@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kviz.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,26 +20,57 @@ namespace Kviz.Wpf
     /// </summary>
     public partial class Zavrsetak : Window
     {
-        public Zavrsetak()
+        private string profesorUsername;
+        private List<Pitanje> pitanja;
+
+        public Zavrsetak(string profesorUsername, List<Pitanje> pitanja)
         {
             InitializeComponent();
+            this.profesorUsername = profesorUsername;
+            this.pitanja = pitanja;
         }
+
         private void btnZavrsi_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNazivIspita.Text) ||
-                string.IsNullOrWhiteSpace(txtBrojBodova.Text))
+            if (string.IsNullOrWhiteSpace(txtNazivIspita.Text))
             {
-                MessageBox.Show("Molimo unesite naziv ispita i broj bodova!",
+                MessageBox.Show("Molimo unesite naziv ispita!",
                               "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            MessageBox.Show("Ispit je uspješno kreiran!", "Uspjeh",
-                          MessageBoxButton.OK, MessageBoxImage.Information);
+            try
+            {
+                using (var db = new KvizDbContext())
+                {
+                    var ispit = new Kviz.Core.Ispit
+                    {
+                        Naziv = txtNazivIspita.Text.Trim(),
+                        ProfesorUsername = profesorUsername
+                    };
 
-            DostupniIspitiProfesor dostupniIspiti = new DostupniIspitiProfesor();
-            dostupniIspiti.Show();
-            this.Close();
+                    foreach (var pitanje in pitanja)
+                    {
+                        ispit.SkupPitanja.Add(pitanje);
+                    }
+
+                    db.Ispiti.Add(ispit);
+                    db.SaveChanges();
+                }
+
+                MessageBox.Show("Ispit je uspješno kreiran i spremljen u bazu!", "Uspjeh",
+                              MessageBoxButton.OK, MessageBoxImage.Information);
+
+                DostupniIspitiProfesor dostupniIspiti = new DostupniIspitiProfesor(profesorUsername);
+                dostupniIspiti.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                var poruka = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                MessageBox.Show($"Greška pri spremanju ispita:\n{poruka}", "Greška",
+                              MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

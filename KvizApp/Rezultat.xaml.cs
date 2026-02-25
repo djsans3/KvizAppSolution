@@ -1,23 +1,12 @@
-﻿using KvizApp;
+﻿using Kviz.Core;
+using KvizApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Kviz.Wpf
 {
-    /// <summary>
-    /// Interaction logic for Rezultat.xaml
-    /// </summary>
     public partial class Rezultat : Window
     {
         private int ostvareniBodovi;
@@ -26,32 +15,44 @@ namespace Kviz.Wpf
         private string ocjena;
         private int pozicijaRangListe;
 
-        public Rezultat()
+        public Rezultat(int ostvareni, int maksimalni, int ispitId, string studentUsername)
         {
             InitializeComponent();
-            IzracunajRezultat(85, 100, 12);
-        }
 
-        public Rezultat(int ostvareni, int maksimalni, int rangLista)
-        {
-            InitializeComponent();
-            IzracunajRezultat(ostvareni, maksimalni, rangLista);
-        }
-
-        private void IzracunajRezultat(int ostvareni, int maksimalni, int rang)
-        {
             ostvareniBodovi = ostvareni;
             maksimalniBodovi = maksimalni;
-            pozicijaRangListe = rang;
-            
-            postotak = ((double)ostvareniBodovi / maksimalniBodovi) * 100;
+
+            postotak = maksimalniBodovi > 0
+                ? ((double)ostvareniBodovi / maksimalniBodovi) * 100
+                : 0;
 
             ocjena = OdrediOcjenu(postotak);
 
+            // Izračunaj rang poziciju iz baze
+            pozicijaRangListe = IzracunajRang(ispitId, ostvareni);
+
             txtBodovi.Text = $"{ostvareniBodovi}/{maksimalniBodovi}";
-            txtPostotak.Text = $"{postotak:F2}%";
+            txtPostotak.Text = $"{postotak:F1}%";
             txtOcjena.Text = ocjena;
-            txtRangLista.Text = pozicijaRangListe.ToString();
+            txtRangLista.Text = $"#{pozicijaRangListe}";
+        }
+
+        private int IzracunajRang(int ispitId, int bodovi)
+        {
+            try
+            {
+                using (var db = new KvizDbContext())
+                {
+                    var boljiRezultati = db.Rezultati
+                        .Where(r => r.IspitId == ispitId && r.BrojTocnihOdgovora > bodovi)
+                        .Count();
+                    return boljiRezultati + 1;
+                }
+            }
+            catch
+            {
+                return 0;
+            }
         }
 
         private string OdrediOcjenu(double postotak)
@@ -70,8 +71,8 @@ namespace Kviz.Wpf
 
         private void btnPovratak_Click(object sender, RoutedEventArgs e)
         {
-            PrikazIspita dostupniIspiti = new PrikazIspita();
-            dostupniIspiti.Show();
+            PrikazIspita prikazIspita = new PrikazIspita();
+            prikazIspita.Show();
             this.Close();
         }
 

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Kviz.Core
@@ -13,7 +15,7 @@ namespace Kviz.Core
 		Nepoznato
 	}
 
-	public abstract class Korisnik
+	public abstract class Korisnik : INotifyPropertyChanged
 	{
 		private string username;
 		private string password;
@@ -24,16 +26,17 @@ namespace Kviz.Core
 			password = "";
 		}
 
+		[Key]
 		public string Username
 		{
 			get { return username; }
-			set { username = value; }
+			set { username = value; OnPropertyChanged(); }
 		}
 
 		public string Password
 		{
 			get { return password; }
-			set { password = value; }
+			set { password = value; OnPropertyChanged(); }
 		}
 
 		public abstract TipKorisnika Prijava();
@@ -44,24 +47,10 @@ namespace Kviz.Core
 
 		public virtual void PregledIspita()
 		{
-			// TODO: SQLite - Dohvati ispite iz baze podataka za ovog korisnika
-			// Primjer:
-			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
-			// {
-			//     connection.Open();
-			//     var command = connection.CreateCommand();
-			//     command.CommandText = "SELECT * FROM Ispiti WHERE KorisnikId = @korisnikId";
-			//     command.Parameters.AddWithValue("@korisnikId", this.Username);
-			//     // Izvrsiti upit and popuniti listu ispita
-			// }
 		}
 
-		/// <summary>
-		/// Factory metoda za provjeru korisnika i vracanje odgovarajuce instance
-		/// </summary>
-		public static Korisnik ProvjeriKorisnika(string korisnickoIme, string lozinka)
+		public static Korisnik? ProvjeriKorisnika(string korisnickoIme, string lozinka)
 		{
-			// Profesor
 			if (korisnickoIme == "profesor" && lozinka == "87654321")
 			{
 				Profesor profesor = new Profesor();
@@ -69,7 +58,6 @@ namespace Kviz.Core
 				profesor.Password = lozinka;
 				return profesor;
 			}
-			// Student
 			else if (korisnickoIme == "student" && lozinka == "12345678")
 			{
 				Student student = new Student();
@@ -77,11 +65,17 @@ namespace Kviz.Core
 				student.Password = lozinka;
 				return student;
 			}
-			// Neuspjesna prijava
 			else
 			{
 				return null;
 			}
+		}
+
+		public event PropertyChangedEventHandler? PropertyChanged;
+
+		protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

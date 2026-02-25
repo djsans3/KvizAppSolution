@@ -1,4 +1,5 @@
-﻿using KvizApp;
+﻿using Kviz.Core;
+using KvizApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,14 @@ namespace Kviz.Wpf
     /// </summary>
     public partial class UspjesnaPrijavaProfesor : Window
     {
-        public UspjesnaPrijavaProfesor()
+        private string profesorUsername;
+
+        public UspjesnaPrijavaProfesor(string profesorUsername)
         {
             InitializeComponent();
+            this.profesorUsername = profesorUsername;
         }
+
         private void btnOdjava_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
@@ -33,8 +38,15 @@ namespace Kviz.Wpf
 
         private void btnDodajIspit_Click(object sender, RoutedEventArgs e)
         {
-            DodajPitanjeTekstualno dodajPitanje = new DodajPitanjeTekstualno();
+            DodajPitanjeTekstualno dodajPitanje = new DodajPitanjeTekstualno(profesorUsername);
             dodajPitanje.Show();
+            this.Close();
+        }
+
+        private void btnPregledajIspite_Click(object sender, RoutedEventArgs e)
+        {
+            DostupniIspitiProfesor dostupniIspiti = new DostupniIspitiProfesor(profesorUsername);
+            dostupniIspiti.Show();
             this.Close();
         }
     }

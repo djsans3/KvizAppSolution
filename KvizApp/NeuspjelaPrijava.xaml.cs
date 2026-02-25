@@ -1,4 +1,5 @@
-﻿using Kviz.Wpf;
+﻿using Kviz.Core;
+using Kviz.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,23 +35,24 @@ namespace KvizApp
             if (!string.IsNullOrWhiteSpace(korisnickoIme) &&
                 !string.IsNullOrWhiteSpace(lozinka))
             {
-                if (korisnickoIme == "profesor" && lozinka == "87654321")
+                Korisnik? korisnik = Korisnik.ProvjeriKorisnika(korisnickoIme, lozinka);
+
+                if (korisnik != null)
                 {
-                    UspjesnaPrijavaProfesor uspjesnaPrijava = new UspjesnaPrijavaProfesor();
-                    uspjesnaPrijava.Show();
-                    this.Close();
-                }
-                else if (korisnickoIme == "student" && lozinka == "1234")
-                {
-                    PrikazIspita uspjesnaPrijava = new PrikazIspita();
-                    uspjesnaPrijava.Show();
-                    this.Close();
-                }
-                else if (korisnickoIme == "student" && lozinka == "12345678")
-                {
-                    UspjesnaPrijava uspjesnaPrijava = new UspjesnaPrijava();
-                    uspjesnaPrijava.Show();
-                    this.Close();
+                    TipKorisnika tip = korisnik.Prijava();
+
+                    if (tip == TipKorisnika.Profesor)
+                    {
+                        UspjesnaPrijavaProfesor prozor = new UspjesnaPrijavaProfesor(korisnik.Username);
+                        prozor.Show();
+                        this.Close();
+                    }
+                    else if (tip == TipKorisnika.Student)
+                    {
+                        PrikazIspita prozor = new PrikazIspita();
+                        prozor.Show();
+                        this.Close();
+                    }
                 }
                 else
                 {

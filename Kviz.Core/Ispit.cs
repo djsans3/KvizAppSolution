@@ -1,38 +1,63 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Kviz.Core
 {
-	public class Ispit
+	public class Ispit : INotifyPropertyChanged
 	{
 		private int sifra;
+		private string naziv;
 		private List<Pitanje> skupPitanja;
 		private int trenBrojTocnihOdg;
+		private string profesorUsername;
 
 		public Ispit()
 		{
+			naziv = "";
+			profesorUsername = "";
 			skupPitanja = new List<Pitanje>();
 			trenBrojTocnihOdg = 0;
 		}
 
+		[Key]
 		public int Sifra
 		{
 			get { return sifra; }
-			set { sifra = value; }
+			set { sifra = value; OnPropertyChanged(); }
 		}
 
-		public List<Pitanje> SkupPitanja
+		public string Naziv
+		{
+			get { return naziv; }
+			set { naziv = value; OnPropertyChanged(); }
+		}
+
+		public string ProfesorUsername
+		{
+			get { return profesorUsername; }
+			set { profesorUsername = value; OnPropertyChanged(); }
+		}
+
+		[ForeignKey("ProfesorUsername")]
+		public virtual Profesor? Profesor { get; set; }
+
+		public virtual List<Pitanje> SkupPitanja
 		{
 			get { return skupPitanja; }
-			set { skupPitanja = value; }
+			set { skupPitanja = value; OnPropertyChanged(); }
 		}
 
+		[NotMapped]
 		public int TrenBrojTocnihOdg
 		{
 			get { return trenBrojTocnihOdg; }
-			set { trenBrojTocnihOdg = value; }
+			set { trenBrojTocnihOdg = value; OnPropertyChanged(); }
 		}
 
 		public int BrojBodovaMax()
@@ -42,52 +67,21 @@ namespace Kviz.Core
 
 		public void PrintRezultat()
 		{
-			// TODO: SQLite - Dohvati rezultat iz baze i prikaži ga
-			// Primjer:
-			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
-			// {
-			//     connection.Open();
-			//     var command = connection.CreateCommand();
-			//     command.CommandText = "SELECT * FROM Rezultati WHERE IspitId = @ispitId";
-			//     command.Parameters.AddWithValue("@ispitId", this.Sifra);
-			//     var reader = command.ExecuteReader();
-			//     // Prikaži rezultate
-			// }
 		}
 
 		public void SpremiRezultat()
 		{
-			// TODO: SQLite - Spremi rezultat u bazu podataka
-			// Primjer:
-			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
-			// {
-			//     connection.Open();
-			//     var command = connection.CreateCommand();
-			//     command.CommandText = @"INSERT INTO Rezultati (IspitId, StudentId, BrojTocnihOdgovora, Datum) 
-			//                              VALUES (@ispitId, @studentId, @brojTocnih, @datum)";
-			//     command.Parameters.AddWithValue("@ispitId", this.Sifra);
-			//     command.Parameters.AddWithValue("@studentId", studentId);
-			//     command.Parameters.AddWithValue("@brojTocnih", this.TrenBrojTocnihOdg);
-			//     command.Parameters.AddWithValue("@datum", DateTime.Now);
-			//     command.ExecuteNonQuery();
-			// }
 		}
 
 		public void PrintRangLista()
 		{
-			// TODO: SQLite - Dohvati rang listu iz baze podataka
-			// Primjer:
-			// using (var connection = new SqliteConnection("Data Source=kviz.db"))
-			// {
-			//     connection.Open();
-			//     var command = connection.CreateCommand();
-			//     command.CommandText = @"SELECT StudentId, BrojTocnihOdgovora FROM Rezultati 
-			//                              WHERE IspitId = @ispitId 
-			//                              ORDER BY BrojTocnihOdgovora DESC";
-			//     command.Parameters.AddWithValue("@ispitId", this.Sifra);
-			//     var reader = command.ExecuteReader();
-			//     // Prikaži rang listu
-			// }
+		}
+
+		public event PropertyChangedEventHandler? PropertyChanged;
+
+		protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

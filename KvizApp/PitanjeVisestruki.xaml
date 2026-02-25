@@ -22,14 +22,14 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 MinWidth="500"
-                MinHeight="250" Height="307">
+                MinHeight="250">
             <StackPanel>
-                <TextBlock Text="Pitanje 1:" 
+                <TextBlock x:Name="txtBrojPitanja" Text="Pitanje 1:" 
                            FontSize="18" 
                            FontWeight="ExtraBold" Foreground="Orange"
                            Margin="0,0,0,20"/>
 
-                <TextBlock Text="Koji od sljedećih jezika nije objektno orijentiran?" 
+                <TextBlock x:Name="txtPitanjeTekst" Text="" 
                            FontSize="16"
                            TextWrapping="Wrap"
                            Margin="0,0,0,30"/>
@@ -38,29 +38,8 @@
                            FontSize="14"
                            Margin="0,0,0,15"/>
 
-                <RadioButton x:Name="rbOdgovor1" 
-                             Content="a) Java" 
-                             FontSize="14"
-                             Margin="0,5"
-                             GroupName="Odgovori"/>
-
-                <RadioButton x:Name="rbOdgovor2" 
-                             Content="b) Python" 
-                             FontSize="14"
-                             Margin="0,5"
-                             GroupName="Odgovori"/>
-
-                <RadioButton x:Name="rbOdgovor3" 
-                             Content="c) C" 
-                             FontSize="14"
-                             Margin="0,5"
-                             GroupName="Odgovori"/>
-
-                <RadioButton x:Name="rbOdgovor4" 
-                             Content="d) C#" 
-                             FontSize="14"
-                             Margin="0,5"
-                             GroupName="Odgovori"/>
+                <StackPanel x:Name="panelOdgovori">
+                </StackPanel>
             </StackPanel>
         </Border>
 
@@ -72,13 +51,13 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" 
-                    Content="Natrag" 
+                    Content="Odustani" 
                     Width="120" 
                     Height="40"
                     FontSize="14"
                     Foreground="MidnightBlue"
-FontWeight="ExtraBold"
-Background="CornflowerBLue"
+                    FontWeight="ExtraBold"
+                    Background="CornflowerBlue"
                     HorizontalAlignment="Left"
                     Click="btnNatrag_Click"/>
 
@@ -87,9 +66,8 @@ Background="CornflowerBLue"
                     Width="120" 
                     Height="40"
                     FontSize="14" Foreground="MidnightBlue"
-FontWeight="ExtraBold"
-Background="CornflowerBLue"
-                   
+                    FontWeight="ExtraBold"
+                    Background="CornflowerBlue"
                     HorizontalAlignment="Right"
                     Click="btnNastavi_Click"/>
         </Grid>

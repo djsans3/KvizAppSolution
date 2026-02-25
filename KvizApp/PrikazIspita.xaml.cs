@@ -1,4 +1,6 @@
-﻿using KvizApp;
+﻿using Kviz.Core;
+using Microsoft.EntityFrameworkCore;
+using KvizApp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,32 +28,42 @@ namespace Kviz.Wpf
             InitializeComponent();
             UcitajIspite();
         }
+
         private void UcitajIspite()
         {
-            var ispiti = new ObservableCollection<Ispit>
+            using (var db = new KvizDbContext())
             {
-                new Ispit { RedniBroj = 1, NazivIspita = "Matematika - Algebra", BrojPitanja = 20, Bodovi = 100, TipPitanja = TipPitanja.Tekstualni },
-                new Ispit { RedniBroj = 2, NazivIspita = "Programiranje u C#", BrojPitanja = 15, Bodovi = 75, TipPitanja = TipPitanja.VisestrukiOdabir },
-                new Ispit { RedniBroj = 3, NazivIspita = "Baze podataka", BrojPitanja = 25, Bodovi = 120, TipPitanja = TipPitanja.Tekstualni },
-                new Ispit { RedniBroj = 4, NazivIspita = "Računalne mreže", BrojPitanja = 18, Bodovi = 90, TipPitanja = TipPitanja.VisestrukiOdabir },
-                new Ispit { RedniBroj = 5, NazivIspita = "Web dizajn", BrojPitanja = 12, Bodovi = 60, TipPitanja = TipPitanja.Tekstualni }
-            };
-
-            //dgIspiti.ItemsSource = ispiti;
+                var ispitiIzBaze = db.Ispiti
+                    .Include(i => i.SkupPitanja)
+                    .ToList();
+                var ispiti = new ObservableCollection<Kviz.Core.Ispit>(ispitiIzBaze);
+                dgIspiti.ItemsSource = ispiti;
+            }
         }
+
         private void btnIspitajSe_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is System.Windows.Controls.Button btn && btn.Tag is Ispit ispit)
+            if (sender is System.Windows.Controls.Button btn && btn.Tag is Kviz.Core.Ispit ispit)
             {
-                if (ispit.TipPitanja == TipPitanja.Tekstualni)
+                if (ispit.SkupPitanja == null || ispit.SkupPitanja.Count == 0)
                 {
-                    PitanjeTekstualno pitanje = new PitanjeTekstualno();
-                    pitanje.ShowDialog();
+                    MessageBox.Show("Ovaj ispit nema pitanja!", "Upozorenje");
+                    return;
+                }
+
+                // Započni ispit s prvim pitanjem
+                var prvoPitanje = ispit.SkupPitanja.First();
+                if (prvoPitanje is SingleChoicePitanje)
+                {
+                    var prozor = new PitanjeVisestruki(ispit, "student", 0, 0);
+                    prozor.Show();
+                    this.Close();
                 }
                 else
                 {
-                    PitanjeVisestruki pitanje = new PitanjeVisestruki();
-                    pitanje.ShowDialog();
+                    var prozor = new PitanjeTekstualno(ispit, "student");
+                    prozor.Show();
+                    this.Close();
                 }
             }
         }
@@ -67,20 +79,5 @@ namespace Kviz.Wpf
         {
 
         }
-    }
-
-    public enum TipPitanja
-    {
-        Tekstualni,
-        VisestrukiOdabir
-    }
-
-    public class Ispit
-    {
-        public int RedniBroj { get; set; }
-        public string NazivIspita { get; set; }
-        public int BrojPitanja { get; set; }
-        public int Bodovi { get; set; }
-        public TipPitanja TipPitanja { get; set; }
     }
 }

@@ -10,7 +10,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Background="LightYellow" Height="60">
@@ -26,26 +25,29 @@
             <Button Grid.Column="1" Content="Odjava" 
                     Width="100" Height="35" Margin="20,0"
                     FontSize="14" Foreground="MidnightBlue"
-FontWeight="ExtraBold"
-Background="CornflowerBLue"
+                    FontWeight="ExtraBold"
+                    Background="CornflowerBLue"
                     Click="btnOdjava_Click"/>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <TextBlock Text="Nema ispita za prikaz!" 
-                       FontSize="28" FontWeight="Bold"
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Center"
-                       Foreground="#333333"/>
-        </Grid>
+        <StackPanel Grid.Row="1"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Button Content="Pregledaj ispite"
+                    Width="250" Height="60"
+                    FontSize="20" FontWeight="ExtraBold"
+                    Foreground="MidnightBlue"
+                    Background="CornflowerBLue"
+                    Margin="0,0,0,20"
+                    Click="btnPregledajIspite_Click"/>
 
-        <Button Grid.Row="2" Content="Dodaj ispit" 
-                Width="200" Height="50"
-                FontSize="16" Foreground="MidnightBlue"
-                FontWeight="ExtraBold"
-                Background="CornflowerBLue"
-                Margin="0,0,0,40"
-                HorizontalAlignment="Center"
-                Click="btnDodajIspit_Click"/>
+            <Button Content="Dodaj ispit" 
+                    Width="250" Height="60"
+                    FontSize="20" FontWeight="ExtraBold"
+                    Foreground="MidnightBlue"
+                    Background="CornflowerBLue"
+                    Click="btnDodajIspit_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

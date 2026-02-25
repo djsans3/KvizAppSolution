@@ -23,13 +23,13 @@
                 MinWidth="500"
                 MinHeight="250" Height="284">
             <StackPanel>
-                <TextBlock Text="Pitanje 1:" 
+                <TextBlock x:Name="txtBrojPitanja" Text="Pitanje 1:" 
                            FontSize="18" 
-                           Foreground="orange"
+                           Foreground="Orange"
                            FontWeight="ExtraBold"
                            Margin="0,0,0,20"/>
 
-                <TextBlock Text="Koliko je 5 + 7?" 
+                <TextBlock x:Name="txtPitanjeTekst" Text="" 
                            FontSize="16"
                            TextWrapping="Wrap"
                            Margin="0,0,0,30"/>
@@ -54,13 +54,13 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" 
-                    Content="Natrag" 
+                    Content="Odustani" 
                     Width="120" 
                     Height="40"
                     FontSize="14"
                     Foreground="MidnightBlue"
-FontWeight="ExtraBold"
-Background="CornflowerBLue"
+                    FontWeight="ExtraBold"
+                    Background="CornflowerBlue"
                     HorizontalAlignment="Left"
                     Click="btnNatrag_Click"/>
 
@@ -69,8 +69,8 @@ Background="CornflowerBLue"
                     Width="120" 
                     Height="40"
                     FontSize="14" Foreground="MidnightBlue"
-FontWeight="ExtraBold"
-Background="CornflowerBLue"
+                    FontWeight="ExtraBold"
+                    Background="CornflowerBlue"
                     HorizontalAlignment="Right"
                     Click="btnNastavi_Click"/>
         </Grid>

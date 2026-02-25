@@ -39,17 +39,14 @@ Background="CornflowerBLue"
                   RowHeight="40" SelectionChanged="dgIspiti_SelectionChanged"> 
             <!--SelectionChanged="dgIspiti_SelectionChanged"-->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="br." 
-                                  Binding="{Binding RedniBroj}" 
-                                  Width="30"/>
+                <DataGridTextColumn Header="Šifra" 
+                                  Binding="{Binding Sifra}" 
+                                  Width="50"/>
                 <DataGridTextColumn Header="Naziv ispita" 
-                                  Binding="{Binding NazivIspita}" 
+                                  Binding="{Binding Naziv}" 
                                   Width="*"/>
                 <DataGridTextColumn Header="Broj pitanja" 
-                                  Binding="{Binding BrojPitanja}" 
-                                  Width="120"/>
-                <DataGridTextColumn Header="Bodovi" 
-                                  Binding="{Binding Bodovi}" 
+                                  Binding="{Binding SkupPitanja.Count, Mode=OneWay}" 
                                   Width="120"/>
                 <DataGridTemplateColumn Header="Pokreni ispit" Width="120">
                     <DataGridTemplateColumn.CellTemplate>
